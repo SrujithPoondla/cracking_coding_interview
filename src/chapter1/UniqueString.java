@@ -5,22 +5,26 @@ package chapter1;
  * Created by srujith reddy on 08-11-2016.
  */
 public class UniqueString {
-    static Boolean unique=false;
+    static boolean unique=false;
     public static void main(String[] args) {
-        String str="aaa";
-        Boolean unique = checkString(str);
+        String str="srujith";
+        boolean unique = checkString(str);
         System.out.println(unique);
     }
 
-    private static Boolean checkString(String str) {
-        for (int i=0;i<str.length();i++){
-            for(int j=0;j<str.length();j++){
-                if(str.charAt(i)!=str.charAt(j)){
-                    unique=true;
-                }
-            }
-
+    private static boolean checkString(String str) {
+        if(str.length()>128) {
+            return false;
         }
-       return unique ;
+        boolean[] char_set = new boolean[128];
+        for (int i=0;i<str.length();i++){
+            int val= str.charAt(i);
+            if(char_set[val]){
+                return false;
+            }
+            char_set[val]=true;
+        }
+        return true;
+
     }
 }
