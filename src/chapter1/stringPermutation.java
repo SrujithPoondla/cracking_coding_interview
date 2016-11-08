@@ -8,8 +8,8 @@ import java.util.Map;
  */
 public class stringPermutation {
     public static void main(String[] args) {
-        String str1="abcc";
-        String str2="bcaa";
+        String str1="abc";
+        String str2="bca";
         boolean status = checkString(str1,str2);
         System.out.println(status);
     }
@@ -18,30 +18,20 @@ public class stringPermutation {
         if(str1.length()!=str2.length()){
             return false;
         }
-        Map<Character,Integer> map1= new HashMap<>();
-        Map<Character,Integer> map2= new HashMap<>();
-        for (int i=0;i<str1.length();i++){
-            if(map1.containsKey(str1.charAt(i))){
-                int val=map1.get(str1.charAt(i));
-                val = val+1;
-                map1.put(str1.charAt(i),val);
-            }else {
-                map1.put(str1.charAt(i),1);
-            }
-            int val=0;
-            if(map2.containsKey(str2.charAt(i))){
-                val=map2.get(str2.charAt(i));
-                val = val+1;
-                map2.put(str2.charAt(i),val);
-            }else {
-                map2.put(str2.charAt(i),1);
-            }
+        int[] letters= new int[128];
+        char[] s= str1.toCharArray();
+        for (char c :s
+             ) {
+            letters[c]=letters[c]+1;
         }
-        for(int i=0;i<str1.length();i++){
-            if(map1.get(str1.charAt(i))!=map2.get(str1.charAt(i))){
+        for (int i=0;i<str2.length();i++){
+            int c = str2.charAt(i);
+            letters[c]--;
+            if(letters[c]<0){
                 return false;
             }
         }
+
         return true;
     }
 }
