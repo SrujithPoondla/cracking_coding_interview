@@ -15,12 +15,25 @@ class removeDups {
 
     public static void main(String[] args) {
         LinkedList llist = new LinkedList();
-//        LinkedList llist1 = removedups(llist);
+        llist.add(1);
+        llist.add(2);
+        llist.add(3);
+        llist.add(1);
+        removedups(llist);
+
 
     }
 
     private static void removedups(LinkedList llist) {
         Set<Integer> set = new HashSet<>();
+        for (Object c: llist
+             ) {
+            if (!set.contains(c)) {
+                set.add((int) c);
+            }else {
+                llist.remove(c);
+            }
+        }
     }
 
 }
