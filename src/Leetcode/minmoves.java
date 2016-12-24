@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class minmoves {
     static int count=0;
     public static void main(String[] args) {
-        int[] n = {1,2,3};
+        int[] n = {1,1,1};
         move(n);
         System.out.println(count);
     }

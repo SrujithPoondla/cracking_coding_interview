@@ -6,29 +6,24 @@ import java.util.ArrayList;
  * Created by srujith reddy on 17-11-2016.
  */
 public class summingdigits {
-    static ArrayList<Integer> arr= new ArrayList<>();
-
 
     public static void main(String[] args) {
-        int n = 1987;
-        int sum=sumofdigits(n);
+        int i= 777;
+        int sum= summing(i);
         System.out.println(sum);
-//        arr.s
     }
 
-    private static int sumofdigits(int num) {
-        int sum=0;
-        if (num<10){
-            return num;
-        }else{
-            sum = sum+ num%10;
-            num= num/10;
-            num = sum+num;
-            sumofdigits(num);
-            }
-
-            return sum;
+    private static int summing(int i) {
+        int num=0;
+        num=num+i%10;
+        i=num+i/10;
+        if(i>10){
+            i=summing(i);
+            return i;
+        }else {
+            return i;
         }
 
     }
+}
 

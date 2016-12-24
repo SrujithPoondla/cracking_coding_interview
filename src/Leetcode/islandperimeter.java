@@ -6,11 +6,11 @@ package Leetcode;
 public class islandperimeter {
     public static int islandPerimeter(int[][] grid) {
         int per=0;
-        int count =0;
-        for (int i=0;i<grid[0].length;i++){
+        int count =1;
+        for (int i=1;i<grid[0].length;i++){
             while (count<grid.length){
-                if(grid[i][count]==1&&grid[i][count-1]==1){
-                    per=per+4;
+                if(grid[i][count]==1){
+//                    if(grid[i])
                 }
                 count=count+1;
             }
